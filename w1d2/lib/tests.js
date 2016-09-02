@@ -1,4 +1,6 @@
-/* global chai, describe, it, xit, expect, before, after, beforeEach, afterEach, oldEnoughToDrink, sameLength, bouncer, max, min, larger, smaller, even, odd, positive, negative, randInt, guessMyNumber, scoreToGrade */
+/* global chai, describe, it, xit, expect, before, after, beforeEach, afterEach, oldEnoughToDrink, sameLength, bouncer, max, min, larger, smaller, even, odd, positive, negative, randInt, guessMyNumber, scoreToGrade, letterGrade, or, and */
+
+
 // This file is how TestRunner.html tests your code. You shouldn't
 // need to modify anything here, but you could check out failing
 // tests to see what exactly is expected of your code.
@@ -224,6 +226,134 @@ describe('booleans-conditionals.js', function () {
     it('should tell you if you got it right', function () {
       var result = guessMyNumber(5);
       expect(result).to.equal('You guessed my number!');
+    });
+  });
+});
+
+
+/* MORE CONDITIONALS */
+
+describe('more-conditionals.js', function () {
+  describe('bouncer()', function () {
+    it('should reject Joe', function () {
+      var result = bouncer('Joe', 39);
+      expect(result).to.contain('Go home');
+    });
+
+    it('should still function properly for everyone else', function () {
+      var result = bouncer('Timmy', 12);
+      expect(result).to.contain('Go home');
+      result = bouncer('Bond', 35);
+      expect(result).to.contain('Welcome');
+    });
+  });
+
+  describe('scoreToGrade()', function () {
+
+    it('should give the correct letter grade', function () {
+      var result = scoreToGrade(85);
+      expect(result).to.equal('B');
+      result = scoreToGrade(39);
+      expect(result).to.equal('F');
+      if (scoreToGrade(90) === 'A-') {
+        result = scoreToGrade(80);
+        expect(result).to.equal('B-');
+        result = scoreToGrade(60);
+        expect(result).to.equal('D-');
+      } else {
+        result = scoreToGrade(80);
+        expect(result).to.equal('B');
+        result = scoreToGrade(60);
+        expect(result).to.equal('D');
+      }
+    });
+
+    it('should return "INVALID SCORE" if the score is invalid', function () {
+      var result = scoreToGrade(103);
+      expect(result).to.equal('INVALID SCORE');
+      result = scoreToGrade(-5);
+      expect(result).to.equal('INVALID SCORE');
+    });
+  });
+
+  describe('whatToDoOutside()', function () {
+    xit('test this one in your console and make sure it\'s working as expected!', function () {});
+  });
+
+  describe('scoreToGrade()', function () {
+    it('should give the correct letter grade with the addition of +/- where appropriate', function () {
+      var result = scoreToGrade(81);
+      expect(result).to.equal('B-');
+      result = scoreToGrade(99);
+      expect(result).to.equal('A+');
+    });
+  });
+
+  describe('bouncer()', function () {
+    it('should give a wristband to anyone 18, 19, or 20', function () {
+      var result = bouncer('Danny', 19);
+      expect(result).to.contain('wristband').or.contain('Wristband');
+    });
+  });
+
+  describe('letterGrade()', function () {
+    it('should return the proper letter grade with appropriate +/-', function () {
+      var result = letterGrade('C', 75);
+      expect(result).to.equal('C');
+      result = letterGrade('D', 68);
+      expect(result).to.equal('D+');
+      result = letterGrade('F', 30);
+      expect(result).to.equal('F');
+      result = letterGrade('Z', 198);
+      expect(result).to.equal('Z+');
+    });
+  });
+
+  describe('or()', function () {
+    it('should return false for two false values', function () {
+      var result = or(false, false);
+      expect(result).to.be.false;
+    });
+
+    it('should return true for two true values', function () {
+      var result = or(true, true);
+      expect(result).to.be.true;
+    });
+
+    it('should return true for one false value and one true value', function () {
+      var result = or(true, false);
+      expect(result).to.be.true;
+      result = or(false, true);
+      expect(result).to.be.true;
+    });
+
+    it('should not use ||', function () {
+      var result = or + '';
+      expect(result).to.not.contain('||');
+    });
+  });
+
+  describe('and()', function () {
+    it('should return false for two false values', function () {
+      var result = and(false, false);
+      expect(result).to.be.false;
+    });
+
+    it('should return true for two true values', function () {
+      var result = and(true, true);
+      expect(result).to.be.true;
+    });
+
+    it('should return false for one false value and one true value', function () {
+      var result = and(true, false);
+      expect(result).to.be.false;
+      result = and(false, true);
+      expect(result).to.be.false;
+    });
+
+    it('should not use &&', function () {
+      var result = and + '';
+      expect(result).to.not.contain('&&');
     });
   });
 });
