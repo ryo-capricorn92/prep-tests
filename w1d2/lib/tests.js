@@ -65,6 +65,10 @@ var dontCheatOn = function(func) {
 /* BOOLEAN CONDITIONALS */
 
 describe('booleans-conditionals.js', function () {
+  beforeEach(function () {
+    dontCheatOn(oldEnoughToDrink);
+  });
+
   describe('oldEnoughToDrink()', function () {
     it('should return false for someone under 21', function () {
       var result = oldEnoughToDrink(20);
@@ -80,6 +84,10 @@ describe('booleans-conditionals.js', function () {
   });
 
   describe('sameLength()', function () {
+    beforeEach(function () {
+      dontCheatOn(sameLength);
+    });
+
     it('should return false for strings of different length', function () {
       var result = sameLength('rabbit', 'goat');
       expect(result).to.be.false;
@@ -92,6 +100,10 @@ describe('booleans-conditionals.js', function () {
   });
 
   describe('bouncer()', function () {
+    beforeEach(function () {
+      dontCheatOn(bouncer);
+    });
+
     it('should turn someone away if they are not 21 or older', function () {
       var result = bouncer('Timmy', 12);
       expect(result).to.contain('Go home');
@@ -111,6 +123,10 @@ describe('booleans-conditionals.js', function () {
   });
 
   describe('max()', function () {
+    beforeEach(function () {
+      dontCheatOn(max);
+    });
+
     it('should return the higher number', function () {
       var result = max(30, 38);
       expect(result).to.equal(38);
@@ -120,6 +136,10 @@ describe('booleans-conditionals.js', function () {
   });
 
   describe('min()', function () {
+    beforeEach(function () {
+      dontCheatOn(min);
+    });
+
     it('should return the lower number', function () {
       var result = min(30, 38);
       expect(result).to.equal(30);
@@ -129,6 +149,10 @@ describe('booleans-conditionals.js', function () {
   });
 
   describe('larger()', function () {
+    beforeEach(function () {
+      dontCheatOn(larger);
+    });
+
     it('should return the longer string', function () {
       var result = larger('Ryo', 'Forrest');
       expect(result).to.equal('Forrest');
@@ -138,6 +162,10 @@ describe('booleans-conditionals.js', function () {
   });
 
   describe('smaller()', function () {
+    beforeEach(function () {
+      dontCheatOn(smaller);
+    });
+
     it('should return the shorter string', function () {
       var result = smaller('Ryo', 'Forrest');
       expect(result).to.equal('Ryo');
@@ -147,6 +175,10 @@ describe('booleans-conditionals.js', function () {
   });
 
   describe('even()', function () {
+    beforeEach(function () {
+      dontCheatOn(even);
+    });
+
     it('should return false if the number is not even', function () {
       var result = even(13);
       expect(result).to.be.false;
@@ -159,6 +191,10 @@ describe('booleans-conditionals.js', function () {
   });
 
   describe('odd()', function () {
+    beforeEach(function () {
+      dontCheatOn(odd);
+    });
+
     it('should return false if the number is not odd', function () {
       var result = odd(28);
       expect(result).to.be.false;
@@ -171,6 +207,10 @@ describe('booleans-conditionals.js', function () {
   });
 
   describe('positive()', function () {
+    beforeEach(function () {
+      dontCheatOn(positive);
+    });
+
     it('should return false if the number is not positive', function () {
       var result = positive(-30);
       expect(result).to.be.false;
@@ -183,6 +223,10 @@ describe('booleans-conditionals.js', function () {
   });
 
   describe('negative()', function () {
+    beforeEach(function () {
+      dontCheatOn(negative);
+    });
+
     it('should return false if the number is not negative', function () {
       var result = negative(99);
       expect(result).to.be.false;
@@ -235,6 +279,10 @@ describe('booleans-conditionals.js', function () {
 
 describe('more-conditionals.js', function () {
   describe('bouncer()', function () {
+    beforeEach(function () {
+      dontCheatOn(bouncer);
+    });
+
     it('should reject Joe', function () {
       var result = bouncer('Joe', 39);
       expect(result).to.contain('Go home');
@@ -249,6 +297,9 @@ describe('more-conditionals.js', function () {
   });
 
   describe('scoreToGrade()', function () {
+    beforeEach(function () {
+      dontCheatOn(scoreToGrade);
+    });
 
     it('should give the correct letter grade', function () {
       var result = scoreToGrade(85);
@@ -281,6 +332,10 @@ describe('more-conditionals.js', function () {
   });
 
   describe('scoreToGrade()', function () {
+    beforeEach(function () {
+      dontCheatOn(scoreToGrade);
+    });
+
     it('should give the correct letter grade with the addition of +/- where appropriate', function () {
       var result = scoreToGrade(81);
       expect(result).to.equal('B-');
@@ -290,6 +345,10 @@ describe('more-conditionals.js', function () {
   });
 
   describe('bouncer()', function () {
+    beforeEach(function () {
+      dontCheatOn(bouncer);
+    });
+
     it('should give a wristband to anyone 18, 19, or 20', function () {
       var result = bouncer('Danny', 19);
       expect(result).to.contain('wristband').or.contain('Wristband');
@@ -297,6 +356,10 @@ describe('more-conditionals.js', function () {
   });
 
   describe('letterGrade()', function () {
+    beforeEach(function () {
+      dontCheatOn(letterGrade);
+    });
+
     it('should return the proper letter grade with appropriate +/-', function () {
       var result = letterGrade('C', 75);
       expect(result).to.equal('C');
@@ -310,6 +373,10 @@ describe('more-conditionals.js', function () {
   });
 
   describe('or()', function () {
+    beforeEach(function () {
+      dontCheatOn(or);
+    });
+
     it('should return false for two false values', function () {
       var result = or(false, false);
       expect(result).to.be.false;
@@ -334,6 +401,10 @@ describe('more-conditionals.js', function () {
   });
 
   describe('and()', function () {
+    beforeEach(function () {
+      dontCheatOn(and);
+    });
+
     it('should return false for two false values', function () {
       var result = and(false, false);
       expect(result).to.be.false;
