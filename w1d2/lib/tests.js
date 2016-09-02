@@ -83,7 +83,7 @@ describe('warmup12.js', function () {
       var result = lhs(1, 1);
       expect(result).to.equal(0);
       result = lhs(2, 3);
-      expect(result).to.equal(6);
+      expect(result).to.equal(7);
       result = lhs(10, 20);
       expect(result).to.equal(28);
     });
@@ -345,7 +345,7 @@ describe('more-conditionals.js', function () {
       expect(result).to.equal('B');
       result = scoreToGrade(39);
       expect(result).to.equal('F');
-      if (scoreToGrade(90) === 'A-') {
+      if (scoreToGrade(89) === 'B+') {
         result = scoreToGrade(80);
         expect(result).to.equal('B-');
         result = scoreToGrade(60);
@@ -390,7 +390,7 @@ describe('more-conditionals.js', function () {
 
     it('should give a wristband to anyone 18, 19, or 20', function () {
       var result = bouncer('Danny', 19);
-      expect(result).to.contain('wristband').or.contain('Wristband');
+      expect(result).to.contain('wristband');
     });
   });
 
