@@ -1,4 +1,4 @@
-/* global chai, describe, it, xit, expect, before, after, beforeEach, afterEach, oldEnoughToDrink, sameLength, bouncer, max, min, larger, smaller, even, odd, positive, negative, randInt, guessMyNumber, scoreToGrade, letterGrade, or, and */
+/* global chai, describe, it, xit, expect, before, after, beforeEach, afterEach, oldEnoughToDrink, sameLength, bouncer, max, min, larger, smaller, even, odd, positive, negative, randInt, guessMyNumber, scoreToGrade, letterGrade, or, and, cube, lhs, rhs */
 
 
 // This file is how TestRunner.html tests your code. You shouldn't
@@ -62,14 +62,53 @@ var dontCheatOn = function(func) {
 
 // Please write tests for all W1D2 exercises below (https://github.com/mmeigooni/rp-w1d2)
 
+describe('warmup12.js', function () {
+  describe('cube()', function () {
+    before(function () {
+      dontCheatOn(cube);
+    });
+
+    it('should return a cubed number with no errors', function () {
+      var result = cube(2);
+      expect(result).to.equal(4);
+      result = cube(result);
+      expect(result).to.equal(16);
+      result = cube(result);
+      expect(result).to.equal(256);
+    });
+  });
+
+  describe('lhs() && rhs()', function () {
+    it('should evaluate the left hand side properly', function () {
+      var result = lhs(1, 1);
+      expect(result).to.equal(0);
+      result = lhs(2, 3);
+      expect(result).to.equal(6);
+      result = lhs(10, 20);
+      expect(result).to.equal(28);
+    });
+
+    it('should evaluate the right hand side properly', function () {
+      var result = rhs(1, 1);
+      expect(result).to.equal(6);
+      result = rhs(2, 3);
+      expect(result).to.equal(17);
+      result = rhs(10, 20);
+      expect(result).to.equal(430);
+    });
+
+    xit('use the console to test whether lhs(2, 3) and rhs(2, 3) evaluate to the same thing', function () {});
+  });
+})
+
 /* BOOLEAN CONDITIONALS */
 
 describe('booleans-conditionals.js', function () {
-  beforeEach(function () {
-    dontCheatOn(oldEnoughToDrink);
-  });
-
   describe('oldEnoughToDrink()', function () {
+    beforeEach(function () {
+      dontCheatOn(oldEnoughToDrink);
+    });
+
     it('should return false for someone under 21', function () {
       var result = oldEnoughToDrink(20);
       expect(result).to.be.false;
